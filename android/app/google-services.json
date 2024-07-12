@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "440378994073",
+    "project_id": "mawdoo3taskk",
+    "storage_bucket": "mawdoo3taskk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440378994073:android:8badf48b93615157f8f708",
+        "android_client_info": {
+          "package_name": "com.example.wodoo33"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK5D76D47YpT0QD3n9_3F3hnKjQ7sgP0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
