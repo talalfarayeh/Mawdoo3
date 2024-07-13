@@ -9,19 +9,38 @@ class SplashView extends GetView<SplashController> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Stack(
         children: [
           Image.asset(
             AppImages.bg,
-            width: Get.width,
+            width: size.width,
+            height: size.height,
             fit: BoxFit.cover,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: Center(
+              if (size.shortestSide < 600)
+                Expanded(
+                  child: Center(
+                    child: AnimatedBuilder(
+                      animation: controller.animation,
+                      builder: (context, child) {
+                        return AnimatedOpacity(
+                          opacity: controller.animation.value,
+                          duration: const Duration(seconds: 2),
+                          child: Image.asset(AppImages.logo),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              if (size.shortestSide >= 600)
+                Align(
+                  alignment: Alignment.center,
                   child: AnimatedBuilder(
                     animation: controller.animation,
                     builder: (context, child) {
@@ -33,7 +52,6 @@ class SplashView extends GetView<SplashController> {
                     },
                   ),
                 ),
-              ),
               const Padding(
                 padding: EdgeInsets.only(bottom: 40.0),
                 child: MainText(

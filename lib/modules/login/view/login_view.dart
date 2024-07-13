@@ -9,50 +9,60 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Stack(
         children: [
           Image.asset(
             AppImages.bg,
-            width: Get.width,
+            width: size.width,
+            height: size.height,
             fit: BoxFit.cover,
           ),
           Center(
-            child: Padding(
-              padding: EdgeInsets.only(top: Get.height * 0.2),
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(top: size.height * 0.1),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(AppImages.logo),
                   const SizedBox(height: 40),
-                  SignInMethodWidget(
-                    title: 'Sign in with Google',
-                    icon: AppImages.google,
-                    controller: controller,
-                    onTap: () {
-                      controller.handleGoogleSignIn();
-                      // Get.offAll(() => const HomeView(),
-                      //     binding: HomeBinding());
-                    },
-                  ),
-                  SignInMethodWidget(
-                    title: 'Sign in with Facebook',
-                    icon: AppImages.facebook,
-                    controller: controller,
-                  ),
-                  SignInMethodWidget(
-                    title: 'Sign in with Apple',
-                    icon: AppImages.apple,
-                    controller: controller,
-                  ),
-                  SignInMethodWidget(
-                    title: 'Sign in with Snapchat',
-                    icon: AppImages.snap,
-                    controller: controller,
-                  ),
-                  SignInMethodWidget(
-                    title: 'Sign in with Tiktok',
-                    icon: AppImages.tiktok,
-                    controller: controller,
+                  Wrap(
+                    spacing: 20.0,
+                    runSpacing: 10.0,
+                    children: [
+                      SignInMethodWidget(
+                        title: 'Sign in with Google',
+                        icon: AppImages.google,
+                        controller: controller,
+                        onTap: () => controller.handleGoogleSignIn(),
+                      ),
+                      SignInMethodWidget(
+                        title: 'Sign in with Facebook',
+                        icon: AppImages.facebook,
+                        controller: controller,
+                        onTap: () => controller,
+                      ),
+                      SignInMethodWidget(
+                        title: 'Sign in with Apple',
+                        icon: AppImages.apple,
+                        controller: controller,
+                        onTap: () => controller,
+                      ),
+                      SignInMethodWidget(
+                        title: 'Sign in with Snapchat',
+                        icon: AppImages.snap,
+                        controller: controller,
+                        onTap: () => controller,
+                      ),
+                      SignInMethodWidget(
+                        title: 'Sign in with Tiktok',
+                        icon: AppImages.tiktok,
+                        controller: controller,
+                        onTap: () => controller,
+                      ),
+                    ],
                   ),
                 ],
               ),
